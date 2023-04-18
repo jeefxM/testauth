@@ -1,7 +1,7 @@
 import React from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 
-const login = () => {
+const Login = () => {
   const { data: session } = useSession();
   console.log(session);
   return (
@@ -9,7 +9,7 @@ const login = () => {
       {session ? (
         <div>
           <h1>Welcome, {session.user.email}</h1>
-          <img className="r-10" src={session.user.image}></img>
+          <img className="" src={session.user.image}></img>
           <button onClick={() => signOut()}>Sign Out</button>
         </div>
       ) : (
@@ -22,4 +22,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;

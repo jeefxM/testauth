@@ -2,7 +2,7 @@ import React from "react";
 import { useSession, signOut, getSession } from "next-auth/react";
 import { redirect } from "next/dist/server/api-utils";
 
-const account = () => {
+const Account = () => {
   const { data: session } = useSession({});
 
   if (session) {
@@ -17,14 +17,14 @@ const account = () => {
   }
 };
 
-export default account;
+export default Account;
 
 export const getServerSideProps = async (context) => {
   const session = await getSession(context);
   if (!session) {
     return {
       redirect: {
-        destination: "/login",
+        destination: "/Login",
       },
     };
   }
